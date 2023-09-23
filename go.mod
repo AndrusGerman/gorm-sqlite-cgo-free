@@ -1,4 +1,4 @@
-module github.com/genc-murat/gorm-sqlite-cgo-free
+module github.com/AndrusGerman/gorm-sqlite-cgo-free
 
 go 1.19
 
