@@ -11,7 +11,7 @@ import (
 // He works in a Company (belongs to), he has a Manager (belongs to - single-table), and also managed a Team (has many - single-table)
 // He speaks many languages (many to many) and has many friends (many to many - single-table)
 // His pet also has one Toy (has one - polymorphic)
-// NamedPet is a reference to a Named `Pets` (has many)
+// NamedPet is a reference to a named `Pet` (has one)
 type User struct {
 	gorm.Model
 	Name      string
@@ -64,8 +64,8 @@ type Language struct {
 type Coupon struct {
 	ID               int              `gorm:"primarykey; size:255"`
 	AppliesToProduct []*CouponProduct `gorm:"foreignKey:CouponId;constraint:OnDelete:CASCADE"`
-	AmountOff        uint32           `gorm:"amount_off"`
-	PercentOff       float32          `gorm:"percent_off"`
+	AmountOff        uint32           `gorm:"column:amount_off"`
+	PercentOff       float32          `gorm:"column:percent_off"`
 }
 
 type CouponProduct struct {
